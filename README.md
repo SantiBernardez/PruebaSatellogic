@@ -14,7 +14,7 @@ Como hipotesis se asume que las imágenes tanto de *plantilla* y *escena* son un
 El primer paso es convertir las imágenes a una escala de blanco y negro pura, eliminadno ruido.
 Ya que las imágenes pueden ser muy grandes primero se busca la zona de interés reduciendo las imágenes a un 5% de su tamaño original.
 Luego se ubican los contornos de ambas imágenes. En el caso de *plantilla* se toma el más grande. Para *escena* se compara mediante momentos Hu con todos los encontrados.
-Despúes de este proceso se selecciona el contorno de *escena* con mejor match.
+Después de este proceso se selecciona el contorno de *escena* con mejor match.
 Una vez identificada la forma se analiza la imagen de *escena* original (sin reducción de tamaño). Comparando el contorno de mayor tamaño.
 Para encontrar los vértices es necesario utilizar una aproximación polinomial, la cual reduce significativamente la cantidad de puntos a operar.
 Los vértices A y B son aquellos puntos a mayor distancia entre si. Mientras que C es el punto a mayor distancia de el segmento AB.
@@ -24,11 +24,11 @@ La API retorna 4 Valores como tupla: (Found,pt\_A,pt\_B,pt\_C).
 ### Si Found es True
 Entonces pt\_A,pt\_B,pt\_C son la ubicación de los vetrices.
 ### Si Found es False
-Entonces la busqueda falló
+Entonces la búsqueda falló
 #### Si pt\_A,pt\_B,pt\_C son None 
-Falló la busqueda de figura en *plantilla*.
+Falló la búsqueda de figura en *plantilla*.
 #### Si pt\_A,pt\_B,pt\_C son -1
-Falló busqueda de figuras en escena. 
+Falló búsqueda de figuras en escena. 
 #### Si pt\_A,pt\_B,pt\_C son Inf
 Entonces no hay contornos en la zona de interés de *escena*.
  
